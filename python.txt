@@ -1,0 +1,50 @@
+import os
+from math import floor
+ 
+# Este codigo es para gestion del inventario de un restaurante
+ 
+class Platillo:
+    def __init__(self, nombre: str, precio: float):
+        self.nombre = nombre
+        self.precio = precio
+ 
+    def mostrar(self):
+        return self.nombre + " - $" + str(self.precio)
+ 
+class Pedido(Platillo):
+    def resumen(self):
+        return "Pedido: " + self.nombre
+ 
+def hay_stock(actual: int, pedido: int):
+    minimo: int = 5
+    disponible: bool = actual >= pedido
+    if pedido > actual:
+        return False
+    elif pedido == 0:
+        return False
+    else:
+        return True
+ 
+def main():
+    menu = ["Sushi", "Pasta", "Pizza", "Tacos"]
+ 
+    # Muestra los platillos disponibles 
+    for platillo in menu:
+        print("Disponible: " + platillo)
+ 
+    stock: int = 12
+    contador: int = 0
+ 
+    # Procesamos los pedidos mientras que si haya stock 
+    while contador < 3:
+        valido: bool = hay_stock(stock, 1)
+        if valido:
+            print("Preparando orden...")
+            contador = contador + 1
+        else:
+            print("Sin stock")
+            break
+ 
+    print("Fin del turno")
+ 
+main()
