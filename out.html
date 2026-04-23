@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Analizador Lexico</title>
+  <style>
+    body { background: #fff; font-family: monospace; font-size: 14px; padding: 20px; }
+    p { margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <p>
+    <b>Leyenda:</b>
+    <span style="color:#1865bd">ciclo</span> &nbsp;
+    <span style="color:#2d7931">comentario</span> &nbsp;
+    <span style="color:#791cb2">variable</span> &nbsp;
+    <span style="color:#e85607">tipo</span> &nbsp;
+    <span style="color:#b61b1b">funcion</span> &nbsp;
+    <span style="color:#910b52">clase</span> &nbsp;
+    <span style="color:#f2a528">condicional</span> &nbsp;
+    <span style="color:#067f8a">import</span>
+  </p>
+  <table style="border-collapse:collapse"><tbody><tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>1</td><td style='white-space:pre'><span style="color:#067f8a">import os</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>2</td><td style='white-space:pre'><span style="color:#067f8a">from math import floor</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>3</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>4</td><td style='white-space:pre'><span style="color:#2d7931"># Este codigo es para gestion del inventario de un restaurante</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>5</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>6</td><td style='white-space:pre'><span style="color:#910b52">class Platillo:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>7</td><td style='white-space:pre'><span style="color:#b61b1b">    def __init__(self, nombre: str, precio: float):</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>8</td><td style='white-space:pre'>        self.nombre = nombre</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>9</td><td style='white-space:pre'>        self.precio = precio</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>10</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>11</td><td style='white-space:pre'><span style="color:#b61b1b">    def mostrar(self):</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>12</td><td style='white-space:pre'><span style="color:#b61b1b">        return self.nombre + &#34; - $&#34; + str(self.precio)</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>13</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>14</td><td style='white-space:pre'><span style="color:#910b52">class Pedido(Platillo):</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>15</td><td style='white-space:pre'><span style="color:#b61b1b">    def resumen(self):</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>16</td><td style='white-space:pre'><span style="color:#b61b1b">        return &#34;Pedido: &#34; + self.nombre</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>17</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>18</td><td style='white-space:pre'><span style="color:#b61b1b">def hay_stock(actual: int, pedido: int):</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>19</td><td style='white-space:pre'>    <span style="color:#791cb2">minimo</span>: <span style="color:#e85607">int</span> = 5</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>20</td><td style='white-space:pre'>    <span style="color:#791cb2">disponible</span>: <span style="color:#e85607">bool</span> = actual &gt;= pedido</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>21</td><td style='white-space:pre'><span style="color:#f2a528">    if pedido &gt; actual:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>22</td><td style='white-space:pre'><span style="color:#b61b1b">        return False</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>23</td><td style='white-space:pre'><span style="color:#f2a528">    elif pedido == 0:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>24</td><td style='white-space:pre'><span style="color:#b61b1b">        return False</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>25</td><td style='white-space:pre'><span style="color:#f2a528">    else:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>26</td><td style='white-space:pre'><span style="color:#b61b1b">        return True</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>27</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>28</td><td style='white-space:pre'><span style="color:#b61b1b">def main():</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>29</td><td style='white-space:pre'>    <span style="color:#791cb2">menu</span> = [&#34;Sushi&#34;, &#34;Pasta&#34;, &#34;Pizza&#34;, &#34;Tacos&#34;]</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>30</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>31</td><td style='white-space:pre'>    <span style="color:#2d7931"># Muestra los platillos disponibles </span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>32</td><td style='white-space:pre'><span style="color:#1865bd">    for platillo in menu:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>33</td><td style='white-space:pre'>        print(&#34;Disponible: &#34; + platillo)</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>34</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>35</td><td style='white-space:pre'>    <span style="color:#791cb2">stock</span>: <span style="color:#e85607">int</span> = 12</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>36</td><td style='white-space:pre'>    <span style="color:#791cb2">contador</span>: <span style="color:#e85607">int</span> = 0</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>37</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>38</td><td style='white-space:pre'>    <span style="color:#2d7931"># Procesamos los pedidos mientras que si haya stock </span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>39</td><td style='white-space:pre'><span style="color:#1865bd">    while contador &lt; 3:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>40</td><td style='white-space:pre'>        <span style="color:#791cb2">valido</span>: <span style="color:#e85607">bool</span> = hay_stock(stock, 1)</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>41</td><td style='white-space:pre'><span style="color:#f2a528">        if valido:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>42</td><td style='white-space:pre'>            print(&#34;Preparando orden...&#34;)</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>43</td><td style='white-space:pre'>            <span style="color:#791cb2">contador</span> = contador + 1</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>44</td><td style='white-space:pre'><span style="color:#f2a528">        else:</span></td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>45</td><td style='white-space:pre'>            print(&#34;Sin stock&#34;)</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>46</td><td style='white-space:pre'>            break</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>47</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>48</td><td style='white-space:pre'>    print(&#34;Fin del turno&#34;)</td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>49</td><td style='white-space:pre'> </td></tr>
+<tr><td style='color:#aaa;padding-right:16px;user-select:none;text-align:right'>50</td><td style='white-space:pre'>main()</td></tr>
+</tbody></table>
+</body>
+</html>
